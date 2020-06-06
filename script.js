@@ -187,7 +187,10 @@ function calculateCdf(i) {
 
 /* This will be fully implemented in Version 2 */
 function renderPage() {
-
+    const inputBoxes = document.getElementsByClassName("input-group");
+    for (let item of inputBoxes) {
+        item.className += " input-group-lg"
+    }
 }
 
 function main() {
