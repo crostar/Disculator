@@ -1,0 +1,27 @@
+{
+  "name": "disculator",
+  "version": "1.0.0",
+  "description": "A minimalist calculator of distributions",
+  "main": "app.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/crostar/Disculator.git"
+  },
+  "author": "crostar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/crostar/Disculator/issues"
+  },
+  "homepage": "https://github.com/crostar/Disculator#readme",
+  "dependencies": {
+    "http": "0.0.1-security"
+  },
+  "devDependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.4"
+  }
+}
