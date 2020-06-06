@@ -1,0 +1,44 @@
+.input-group {
+    margin-top: 5px;
+}
+
+.calItem {
+    border-style: solid;
+    border-width: 2px;
+    border-color: black;
+
+    padding-top: 20px;
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 10px;
+
+    margin-top: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
+
+    height: 200px;
+    width: 400px;
+}
+
+#header {
+    text-align: center;
+}
+#subHeader {
+    position: relative;
+    left: 10%;
+}
+.distHeader {
+    text-align: center;
+    font-weight: bold;
+}
+
+#mainBoard {
+    margin-top: 30px;
+}
+
+.pdfbtn:hover {
+   background-color: cadetblue; 
+}
+.cdfbtn:hover {
+    background-color: cadetblue;
+}
