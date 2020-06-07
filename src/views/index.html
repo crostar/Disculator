@@ -18,173 +18,110 @@
         Disculator
         <div id="subHeader" class="h5"> A minimalist calculator for distribution </div>
     </div>
-    <div id="mainBoard" class="d-flex flex-row justify-content-around">
-        <div id="row1" class="mainRow d-flex flex-column justify-content-start">
-            <div id="uniform" class="calItem">
-                <div class="distHeader text-center">
-                    Uniform Distribution
-                </div>
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text">a</span>
-                    </div>
-                    <input type="text" aria-label="a" class="form-control">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text">b</span>
-                    </div>
-                    <input type="text" aria-label="b" class="form-control">
-                </div>
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text">x</span>
-                    </div>
-                    <input type="text" aria-label="x" class="form-control">
-                </div>
-                <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                        <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">You Want</button>
-                        <div class="dropdown-menu">
-                            <button class="pdfBtn dropdown-item btn">PDF (i.e. P(X = x))</button>
-                            <button class="cdfBtn dropdown-item btn">CDF (i.e. P(X &le; x))</button>
-                        </div>
-                    </div>
-                    <input type="number" class="form-control" aria-label="result">
-                </div>
+    <div id="mainBoard">
+        <div id="uniform" class="calItem">
+            <div class="distHeader text-center">
+                Uniform Distribution
             </div>
-            <div id="binomial" class="calItem">
-                <div class="distHeader">
-                    Binomial Distribution
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">a</span>
                 </div>
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text">n</span>
-                    </div>
-                    <input type="text" aria-label="n" class="form-control">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text">p</span>
-                    </div>
-                    <input type="text" aria-label="p" class="form-control">
+                <input type="text" aria-label="a" class="form-control">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">b</span>
                 </div>
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text">x</span>
-                    </div>
-                    <input type="text" aria-label="x" class="form-control">
-                </div>
-                <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                        <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">You Want</button>
-                        <div class="dropdown-menu">
-                            <button class="pdfBtn dropdown-item btn">PDF (i.e. P(X = x))</button>
-                            <button class="cdfBtn dropdown-item btn">CDF (i.e. P(X &le; x))</button>
-                        </div>
-                    </div>
-                    <input type="text" class="form-control" aria-label="Text input with dropdown button">
-                </div>
-
+                <input type="text" aria-label="b" class="form-control">
             </div>
-            <div id="hyperGeometric" class="calItem">
-                <div class="distHeader">
-                    HyperGeometric Distribution
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">x</span>
                 </div>
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text">N</span>
-                    </div>
-                    <input type="text" aria-label="N" class="form-control">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text">r</span>
-                    </div>
-                    <input type="text" aria-label="r" class="form-control">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text">n</span>
-                    </div>
-                    <input type="text" aria-label="n" class="form-control">
-                </div>
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text">x</span>
-                    </div>
-                    <input type="text" aria-label="x" class="form-control">
-                </div>
-                <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                        <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">You Want</button>
-                        <div class="dropdown-menu">
-                            <button class="pdfBtn dropdown-item btn">PDF (i.e. P(X = x))</button>
-                            <button class="cdfBtn dropdown-item btn">CDF (i.e. P(X &le; x))</button>
-                        </div>
-                    </div>
-                    <input type="text" class="form-control" aria-label="Text input with dropdown button">
-                </div>
-
+                <input type="text" aria-label="x" class="form-control">
             </div>
         </div>
-        <div id="row2" class="mainRow d-flex flex-column justify-content-start">
-            <div id="negativeBinomial" class="calItem">
-                <div class="distHeader">
-                    Negative Binomial Distribution
-                </div>
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text">k</span>
-                    </div>
-                    <input type="text" aria-label="k" class="form-control">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text">p</span>
-                    </div>
-                    <input type="text" aria-label="p" class="form-control">
-                </div>
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text">x</span>
-                    </div>
-                    <input type="text" aria-label="x" class="form-control">
-                </div>
-                <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                        <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">You Want</button>
-                        <div class="dropdown-menu">
-                            <button class="pdfBtn dropdown-item btn">PDF (i.e. P(X = x))</button>
-                            <button class="cdfBtn dropdown-item btn">CDF (i.e. P(X &le; x))</button>
-                        </div>
-                    </div>
-                    <input type="text" class="form-control" aria-label="Text input with dropdown button">
-                </div>
-
+        <div id="binomial" class="calItem">
+            <div class="distHeader">
+                Binomial Distribution
             </div>
-            <div id="geometric" class="calItem">
-                <div class="distHeader">
-                    Geometric Distribution
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">n</span>
                 </div>
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text">p</span>
-                    </div>
-                    <input type="text" aria-label="p" class="form-control">
+                <input type="text" aria-label="n" class="form-control">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">p</span>
                 </div>
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text">x</span>
-                    </div>
-                    <input type="text" aria-label="x" class="form-control">
+                <input type="text" aria-label="p" class="form-control">
+            </div>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">x</span>
                 </div>
-                <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                        <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false">You Want</button>
-                        <div class="dropdown-menu">
-                            <button class="dropdown-item btn pdfBtn">PDF (i.e. P(X = x))</button>
-                            <button class="cdfBtn dropdown-item btn">CDF (i.e. P(X &le; x))</button>
-                        </div>
-                    </div>
-                    <input type="text" class="form-control" aria-label="Text input with dropdown button">
+                <input type="text" aria-label="x" class="form-control">
+            </div>
+        </div>
+        <div id="hyperGeometric" class="calItem">
+            <div class="distHeader">
+                HyperGeometric Distribution
+            </div>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">N</span>
                 </div>
-
+                <input type="text" aria-label="N" class="form-control">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">r</span>
+                </div>
+                <input type="text" aria-label="r" class="form-control">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">n</span>
+                </div>
+                <input type="text" aria-label="n" class="form-control">
+            </div>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">x</span>
+                </div>
+                <input type="text" aria-label="x" class="form-control">
+            </div>
+        </div>
+        <div id="negativeBinomial" class="calItem">
+            <div class="distHeader">
+                Negative Binomial Distribution
+            </div>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">k</span>
+                </div>
+                <input type="text" aria-label="k" class="form-control">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">p</span>
+                </div>
+                <input type="text" aria-label="p" class="form-control">
+            </div>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">x</span>
+                </div>
+                <input type="text" aria-label="x" class="form-control">
+            </div>
+        </div>
+        <div id="geometric" class="calItem">
+            <div class="distHeader">
+                Geometric Distribution
+            </div>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">p</span>
+                </div>
+                <input type="text" aria-label="p" class="form-control">
+            </div>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <span class="input-group-text">x</span>
+                </div>
+                <input type="text" aria-label="x" class="form-control">
             </div>
         </div>
     </div>
@@ -199,6 +136,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
+    <script src="static/view.js"></script>
     <script src="static/script.js"></script>
 </body>
 

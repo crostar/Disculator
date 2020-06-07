@@ -185,25 +185,31 @@ function calculateCdf(i) {
     }
 }
 
-/* This will be fully implemented in Version 2 */
-function renderPage() {
-    const inputBoxes = document.getElementsByClassName("input-group");
+function clearInputBoxes(btn) {
+    console.log("hey");
+    const inputBoxes = btn.parentNode.parentNode.getElementsByTagName("input");
+    console.log(btn);
+    console.log(btn.parentNode);
+    console.log(btn.parentNode.parentNode);
+    console.log(inputBoxes);
     for (let item of inputBoxes) {
-        item.className += " input-group-lg"
+        item.value = "";
     }
 }
 
 function main() {
-    renderPage();
-    const pdfbtn = document.getElementsByClassName("pdfBtn");
-    for (let i = 0; i < pdfbtn.length; i++) {
-        console.log(i);
-        pdfbtn[i].addEventListener("click", calculatePdf(i));
+    const pdfBtns = document.getElementsByClassName("pdfBtn");
+    for (let i = 0; i < pdfBtns.length; i++) {
+        pdfBtns[i].addEventListener("click", calculatePdf(i));
     }
-    const cdfbtn = document.getElementsByClassName("cdfBtn");
-    for (let i = 0; i < cdfbtn.length; i++) {
+    const cdfBtns = document.getElementsByClassName("cdfBtn");
+    for (let i = 0; i < cdfBtns.length; i++) {
+        cdfBtns[i].addEventListener("click", calculateCdf(i));
+    }
+    const clearBtns = document.getElementsByClassName("clearBtn");
+    for (let i = 0; i < clearBtns.length; i++) {
         console.log(i);
-        cdfbtn[i].addEventListener("click", calculateCdf(i));
+        clearBtns[i].addEventListener("click", function(){ clearInputBoxes(clearBtns[i]); });
     }
 }
 
