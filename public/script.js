@@ -18,7 +18,6 @@ function parseInputs(inputs) {
             res.push(resNum);
     }
     res.push(inputs[inputs.length - 1]);
-    console.log(res);
     return res;
 }
 
@@ -39,13 +38,23 @@ function choose(n, k) {
     return factorial(n) / (factorial(n - k) * factorial(k));
 }
 
+function alertInvalidInput(dist) {
+    alert("Invalid inputs! Please see the requirement of " + dist + " Distribution");
+}
+
 function calculatePdfUniform() {
     const distItem = document.getElementById("uniform");
     const inputNums = extractInputs(distItem);
     const a = inputNums[0];
     const b = inputNums[1];
-    const result = 1 / (b - a + 1);
-    inputNums[inputNums.length - 1].value = String(result);
+    const x = inputNums[2];
+    let sane = (a <= x) && (x <= b) && Number.isInteger(b-x) && Number.isInteger(x-a);
+    if (sane) {
+        const result = 1 / (b - a + 1);
+        inputNums[inputNums.length - 1].value = String(result);
+    } else {
+        alertInvalidInput("Uniform");
+    }
 }
 
 function calculatePdfHyperGeometric() {
@@ -55,8 +64,14 @@ function calculatePdfHyperGeometric() {
     const r = inputNums[1];
     const n = inputNums[2];
     const x = inputNums[3];
-    const result = choose(r, x) * choose(N - r, n - x) / choose(N, n);
-    inputNums[inputNums.length - 1].value = String(result);
+    let sane = Number.isInteger(N) && Number.isInteger(r) && Number.isInteger(n) && Number.isInteger(x);
+    sane = sane && r <= N && n <= N && x <= r && x <= n;
+    if (sane) {
+        const result = choose(r, x) * choose(N - r, n - x) / choose(N, n);
+        inputNums[inputNums.length - 1].value = String(result);
+    } else {
+        alertInvalidInput("HyperGeometric");
+    }
 }
 
 function calculatePdfBinomial() {
@@ -65,8 +80,13 @@ function calculatePdfBinomial() {
     const n = inputNums[0];
     const p = inputNums[1];
     const x = inputNums[2];
-    const result = choose(n, x) * (p ** x) * ((1 - p) ** (n - x));
-    inputNums[inputNums.length - 1].value = String(result);
+    let sane = p >= 0 && p <= 1 && Number.isInteger(n) && Number.isInteger(x) && x <= n && x >= 0;
+    if (sane) {
+        const result = choose(n, x) * (p ** x) * ((1 - p) ** (n - x));
+        inputNums[inputNums.length - 1].value = String(result);
+    } else {
+        alertInvalidInput("Binomial");
+    }
 }
 
 function calculatePdfNegativeBinomial() {
@@ -75,8 +95,13 @@ function calculatePdfNegativeBinomial() {
     const k = inputNums[0];
     const p = inputNums[1];
     const x = inputNums[2];
-    const result = choose(k + x - 1, k - 1) * (p ** k) * ((1 - p) ** x);
-    inputNums[inputNums.length - 1].value = String(result);
+    let sane = p >= 0 && p <= 1 && Number.isInteger(k) && Number.isInteger(x) && k > 0 && x >= 0;
+    if (sane) {
+        const result = choose(k + x - 1, k - 1) * (p ** k) * ((1 - p) ** x);
+        inputNums[inputNums.length - 1].value = String(result);
+    } else {
+        alertInvalidInput("Negative Binomial");
+    }
 }
 
 
@@ -85,8 +110,13 @@ function calculatePdfGeometric() {
     const inputNums = extractInputs(distItem);
     const p = inputNums[0];
     const x = inputNums[1];
-    const result = p * ((1 - p) ** x);
-    inputNums[inputNums.length - 1].value = String(result);
+    let sane = p >= 0 && p <= 1 && x.isInteger() && k >= 0;
+    if (sane) {
+        const result = p * ((1 - p) ** x);
+        inputNums[inputNums.length - 1].value = String(result);
+    } else {
+        alertInvalidInput("Geometric");
+    }
 }
 
 function calculateCdfUniform() {
@@ -95,8 +125,13 @@ function calculateCdfUniform() {
     const a = inputNums[0];
     const b = inputNums[1];
     const x = inputNums[2];
-    const result = (x - a + 1) / (b - a + 1);
-    inputNums[inputNums.length - 1].value = String(result);
+    let sane = (a <= x) && (x <= b) && Number.isInteger(b-x) && Number.isInteger(x-a);
+    if (sane) {
+        const result = (x - a + 1) / (b - a + 1);
+        inputNums[inputNums.length - 1].value = String(result);
+    } else {
+        alertInvalidInput("Uniform");
+    }
 }
 
 function calculateCdfHyperGeometric() {
@@ -107,7 +142,7 @@ function calculateCdfHyperGeometric() {
     const n = inputNums[2];
     const x = inputNums[3];
     const result = choose(r, x) * choose(N - r, n - x) / choose(N, n);
-    inputNums[inputNums.length - 1].value = "To complicated! Beyond our scope.";
+    inputNums[inputNums.length - 1].value = "To be implemented.";
 }
 
 function calculateCdfBinomial() {
@@ -117,7 +152,7 @@ function calculateCdfBinomial() {
     const p = inputNums[1];
     const x = inputNums[2];
     const result = choose(n, x) * (p ** x) * ((1 - p) ** (n - x));
-    inputNums[inputNums.length - 1].value = "To complicated! Beyond our scope.";
+    inputNums[inputNums.length - 1].value = "To be implemented.";
 }
 
 function calculateCdfNegativeBinomial() {
@@ -127,7 +162,7 @@ function calculateCdfNegativeBinomial() {
     const p = inputNums[1];
     const x = inputNums[2];
     const result = choose(k + x - 1, k - 1) * (p ** k) * ((1 - p) ** x);
-    inputNums[inputNums.length - 1].value = "To complicated! Beyond our scope.";
+    inputNums[inputNums.length - 1].value = "To be implemented.";
 }
 
 
@@ -137,7 +172,7 @@ function calculateCdfGeometric() {
     const p = inputNums[0];
     const x = inputNums[1];
     const result = p * ((1 - p) ** x);
-    inputNums[inputNums.length - 1].value = "To complicated! Beyond our scope.";
+    inputNums[inputNums.length - 1].value = "To be implemented.";
 }
 
 
@@ -145,19 +180,14 @@ function calculatePdf(i) {
     switch (i) {
         case 0:
             return calculatePdfUniform;
-            break;
         case 1:
             return calculatePdfBinomial;
-            break;
         case 2:
             return calculatePdfHyperGeometric;
-            break;
         case 3:
             return calculatePdfNegativeBinomial;
-            break;
         case 4:
             return calculatePdfGeometric;
-            break;
         default:
             return null;
     }
@@ -167,31 +197,21 @@ function calculateCdf(i) {
     switch (i) {
         case 0:
             return calculateCdfUniform;
-            break;
         case 1:
             return calculateCdfBinomial;
-            break;
         case 2:
             return calculateCdfHyperGeometric;
-            break;
         case 3:
             return calculateCdfNegativeBinomial;
-            break;
         case 4:
             return calculateCdfGeometric;
-            break;
         default:
             return null;
     }
 }
 
 function clearInputBoxes(btn) {
-    console.log("hey");
     const inputBoxes = btn.parentNode.parentNode.getElementsByTagName("input");
-    console.log(btn);
-    console.log(btn.parentNode);
-    console.log(btn.parentNode.parentNode);
-    console.log(inputBoxes);
     for (let item of inputBoxes) {
         item.value = "";
     }
@@ -208,8 +228,7 @@ function main() {
     }
     const clearBtns = document.getElementsByClassName("clearBtn");
     for (let i = 0; i < clearBtns.length; i++) {
-        console.log(i);
-        clearBtns[i].addEventListener("click", function(){ clearInputBoxes(clearBtns[i]); });
+        clearBtns[i].addEventListener("click", function () { clearInputBoxes(clearBtns[i]); });
     }
 }
 

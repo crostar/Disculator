@@ -46,7 +46,6 @@ function Buttons() {
 function renderPage() {
     const calItems = document.getElementsByClassName("calItem");
 
-    console.log(calItems);
     for (let item of calItems) {
         const buttons = Buttons();
         item.appendChild(buttons[0]);
